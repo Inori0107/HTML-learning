@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 75%;
+            margin: 2rem auto;
+            background: #ccc;
+            border-radius: 1rem;
+        }
+
+        .float-left {
+            /* float 會自動轉型成 block */
+            float: left;
+            margin: 1rem;
+        }
+
+        .clear-left {
+            clear: left;
+        }
+
+        .float-right {
+            /* float 會自動轉型成 block */
+            float: right;
+            margin: 1rem;
+        }
+
+        /* 完整置右 */
+        .clear-right {
+            clear: right;
+        }
+
+        .clear-both {
+            clear: both;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+
+        .menu-item {
+            /* width → 將包含 padding、border */
+            box-sizing: border-box;
+            width: 20%;
+            padding: 1rem;
+            border: 10px solid #333;
+
+            float: left;
+            text-align: center;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 圖片原為 inline-block -->
+        <img class="float-left" src="https://picsum.photos/300/500/?random=10">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repudiandae, itaque rem laudantium distinctio quasi nemo vel esse illo ea minus est alias corporis repellendus voluptatum hic aperiam voluptate qui, tenetur sint repellat? Odit aperiam non cum nobis delectus consequatur officia ea quisquam? Saepe voluptate autem velit quas facere fugiat repudiandae sapiente porro, nemo nihil iure dignissimos eveniet sint. Reprehenderit atque ad modi, dicta maiores consectetur nesciunt vitae ea, quo numquam deserunt incidunt sint hic facilis dolor quam saepe exercitationem eaque quas. Optio, minus ipsa. Quis at dolores eveniet ab unde, deleniti, nisi a, enim asperiores praesentium est quasi cumque.</p>
+        <p class="clear-left">職位發送現實不夠工業法人套件，點此投入留言圖片同志不肯利潤我是廣泛指南，算是大陸作出是由大哥最快強大健康運輸引起規定包裝，權威位元離線，財務床上說道概念經驗一份政策功能一道你自己一名，太多讀書其它本。</p>
+    </div>
+    <div class="container">
+        <!-- 圖片原為 inline-block -->
+        <img class="float-right" src="https://picsum.photos/300/500/?random=10">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repudiandae, itaque rem laudantium distinctio quasi nemo vel esse illo ea minus est alias corporis repellendus voluptatum hic aperiam voluptate qui, tenetur sint repellat? Odit aperiam non cum nobis delectus consequatur officia ea quisquam? Saepe voluptate autem velit quas facere fugiat repudiandae sapiente porro, nemo nihil iure dignissimos eveniet sint. Reprehenderit atque ad modi, dicta maiores consectetur nesciunt vitae ea, quo numquam deserunt incidunt sint hic facilis dolor quam saepe exercitationem eaque quas. Optio, minus ipsa. Quis at dolores eveniet ab unde, deleniti, nisi a, enim asperiores praesentium est quasi cumque.</p>
+        <p class="clear-right">職位發送現實不夠工業法人套件，點此投入留言圖片同志不肯利潤我是廣泛指南，算是大陸作出是由大哥最快強大健康運輸引起規定包裝，權威位元離線，財務床上說道概念經驗一份政策功能一道你自己一名，太多讀書其它本。</p>
+    </div>
+
+    <div class="container">
+        <h2>float-left 與 float-right</h2>
+        <img class="float-left" src="https://picsum.photos/300/200/?random=10">
+        <img class="float-right" src="https://picsum.photos/300/200/?random=10">
+        <p class="clear-both">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem minima assumenda tempora libero molestias mollitia obcaecati at totam ea sequi! Placeat molestiae, voluptate odio necessitatibus, rerum mollitia eum veritatis, unde expedita exercitationem molestias modi deserunt id harum assumenda voluptates recusandae quas magnam inventore ratione ipsa asperiores? Exercitationem possimus soluta dolorum. Saepe est at enim, sit pariatur cum quae tempore ipsa consequatur deserunt. Voluptas, sunt labore quae molestiae suscipit porro atque est nobis, distinctio id magni vero hic vitae officia facere itaque impedit veniam blanditiis? Dolorum obcaecati corporis, dignissimos odit reiciendis inventore odio culpa autem saepe, sit eligendi, praesentium et necessitatibus.</p>
+    </div>
+
+    <div class="container">
+        <h2>浮動 float 特性</h2>
+        <ul>
+            <li>具有區塊化(block)特性 將元素轉型成 block </li>
+            <li>會使元素脫離正常流向而獨立 影響父元素使得無法包覆浮動元素<br>
+                若父元素沒有內容或 padding 就會造成父元素高度崩塌流失</li>
+            <li>父元素設定 overflow:hidden 可以讓浮動元素再次被包覆</li>
+        </ul>
+    </div>
+
+    <div style="background: deepskyblue;overflow:hidden">
+        <span style="float:left">我是 span 原為 inline 後轉為 block</span>
+        <button style="float:right">我是 button 原為 inline 後轉為 block</button>
+    </div>
+
+    <div class="container" style="overflow:hidden; padding:20px">
+        <h2>float 選單</h2>
+        <!-- ul.menu>li.menu-item{item$}*5 -->
+        <ul class="menu">
+            <li class="menu-item">item1</li>
+            <li class="menu-item">item2</li>
+            <li class="menu-item">item3</li>
+            <li class="menu-item">item4</li>
+            <li class="menu-item">item5</li>
+        </ul>
+    </div>
+</body>
+
+</html>

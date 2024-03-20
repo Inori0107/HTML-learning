@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 設定google font  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        html {
+            font-size: 16px;
+        }
+
+        /* root 根元素  可以選擇到 html */
+        :root {
+            font-size: 16px;
+        }
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .font_style {
+        /* 設定字型家族 有先後順序 */
+        font-family: "微軟正黑體", Impact, Haettenschweiler, "Arial Narrow Bold",
+          sans-serif;
+        /* 字體大小 px em rem */
+        font-size: 20px;
+        font-style: italic;
+        font-weight: bold;
+        /* 設定字體變大寫 第一個字母變大(不適用中文) */
+        font-variant: small-caps;
+        /* 縮寫 */
+        /* 30px / 40px → 字體大小 / 行高(斜線不能省略) */
+        font: small-caps bolder 30px/40px "arial narrow bold", sana-serif;
+      }
+
+      /* 自訂義字型 需要字體檔案*/
+      @font-face {
+        font-family: "my font";
+        src: url("./Ace\ Records.ttf");
+      }
+      .font_set {
+        font-family: "my font";
+        font-size: 20px;
+      }
+
+      .google_font {
+        font-family: "Londrina Solid", sans-serif;
+        font-size: 20px;
+      }
+      
+      .text_style {
+        font-size: 30px;
+        /* 文字對齊 left、center、right */
+        text-align:center;
+        /* none、underline、overline、line-through */
+        text-decoration:underline;
+        /* 縮排 */
+        text-indent: 2rem;
+        /* 文字轉換大小寫 */
+        text-transform: capitalize;
+        /* 文字陰影
+          水平位移 (右 + 左 - )
+          垂直位移 (下 + 上 - )
+          陰影模糊半徑 顏色 (記得設定 非完全透明)
+        */
+        text-shadow: 5px 5px 1px rgba(0, 0, 0, 0.2);
+        /* 字距 */
+        letter-spacing: 2px;
+        /* 單字間隔 必須有空格才有作用 而中文難有空格 比較適合英文 */
+        word-spacing: 2rem;
+        /* 行高 也可以用單個數字 代表倍數 line-heigh: 2 */
+        line-height: 32px;
+      }
+      .multi_text_shadow {
+        font-size: 30px;
+        text-shadow: 
+            1px 1px 1px rgba(255, 255, 255, 1),
+            2px 2px 2px rgba(255, 255, 0, 1),
+            3px 3px 3px rgba(255, 150, 0, 1),
+            4px 4px 4px rgba(255, 0, 0, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>1. font 樣式設定</h1>
+    <p class="font_style">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, nesciunt!。
+    </p>
+    <p>暫無畫面男生網際快。</p>
+
+    <h2>自訂字型</h2>
+    <p class="font_set">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, pariatur!
+    </p>
+
+    <h2>Google fonts</h2>
+    <p class="google_font">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, voluptates.
+
+    <h1>2. Text 樣式設定</h1>
+    <p class="text_style">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, cupiditate.</p>
+    </p>
+    <h2>多重文字陰影</h2>
+    <p class="multi_text_shadow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, non?</p>
+    
+    <h1>3. rem 與 em 差異</h1>
+    <h2>REM 為根元素(16px) font-size 的倍數</h2>
+    <div style="font-size: 1rem">
+        font
+        <div style="font-size: 2rem">
+            font
+            <div style="font-size: 3rem">font</div>
+        </div>
+
+    <h2>EM 可能為父層或祖先層 font-size 的倍數</h2>
+    <div style="font-size: 1em">
+        font
+        <div style="font-size: 2em">
+            font
+            <div style="font-size:3em">font</div>
+        </div>
+
+    </div>
+  </body>
+</html>

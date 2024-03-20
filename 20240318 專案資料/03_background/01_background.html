@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 600px;
+        height: 600px;
+        border: 5px solid #ffffff;
+        border-radius: 10px;
+        margin: 100px auto;
+        box-shadow: 0 0 20px rgba(0, 0, 0);
+
+        font-size: 3rem;
+        color: yellow;
+        text-shadow: 0px 0px 3px rgba(0, 0, 0);
+      }
+
+      /* background-color 妥善分類*/
+      .bg_color {
+        background-color: #faa;
+      }
+
+      /* background-image  */
+      .bg_image {
+        background-image: url("https://picsum.photos/300/200/?random=10");
+      }
+      .bg_repeat_x {
+        background-repeat: repeat-x;
+      }
+      .bg_repeat_y {
+        background-repeat: repeat-y;
+      }
+      .bg_repeat_no {
+        background-repeat: no-repeat;
+      }
+
+      .bg_size {
+        background-image: url("https://picsum.photos/200/100/?random=10");
+        background-repeat: no-repeat;
+        /* contain 背景圖片等比例縮放 若碰到外框時 另一邊停止縮放 */
+        /* cover 背景圖片等比例縮放 會填滿至外框 但可能會被裁切 */
+        background-size: cover;
+        /* 以 百分比 設定背景
+            單值時 設定寬度縮放 而高度則為 auto
+            雙值時 前為寬度 後為高度
+        */
+        background-size: 50% 50%;
+      }
+
+      .bg_position {
+        /* 雙值 → 前為水平 後為垂直 left center right top bottom*/
+        background-position: center left;
+        background-position: 50% 0%;
+        /* 可以為負值(從外框向內的圖片) */
+        background-position: -50px 100px;
+      }
+
+      .pikachu {
+        width: 600px;
+        height: 300px;
+        border: 5px solid #ffffff;
+        margin: 100px auto;
+
+        font-size: 3rem;
+        color: red;
+        text-shadow: 0 0 3px rgba(0, 0, 0);
+        box-shadow: 0 0 20px rgb(0, 0, 0);
+
+        background-image: url("./pikachu.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 -100px;
+      }
+
+      .bg_abbr {
+        /* 1. background-size 一定要緊接在 background-position 之後 且須以 / 隔開
+           2. 設定 background-position 雙值時 建議先設定水平 再設定垂直
+        */
+        background: url(./pikachu.png) no-repeat center center/ cover;
+      }
+
+      /* 多張背景排序 圖片由先後順序 上至下排列 即上方會蓋住下方
+         最先出現的在最上層 其次 最下層
+      */
+      .bg_three {
+        background-image: url("https://picsum.photos/600/100/?random=10"),
+          url("https://picsum.photos/600/400/?random=10"),
+          url("https://picsum.photos/600/100/?random=10");
+        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-position: left top, left 100px, left bottom;
+        /* 縮寫版 以 background 開頭*/
+        background: url("https://picsum.photos/300/200/?random=10") no-repeat
+            left top,
+          url("https://picsum.photos/300/200/?random=10") no-repeat let 100px,
+          url("https://picsum.photos/300/200/?random=10") no-repeat let bottom;
+      }
+
+      /* 線性漸層 
+          1. background、background-image 都可以設定漸層 漸層視同背景的一種
+          2. 0deg 向下 ↓ 90deg 向右 → 180deg 向上 ↑ 270deg 向左 ←
+      */
+      .linear_gradient {
+        /* 預設角度為 180 deg (向下) */
+        background-image: linear-gradient(225deg, red, yellow, white);
+        /* 漸層站點 */
+        background-image: linear-gradient(
+          45deg,
+          #ffffff 0%,
+          lightblue 25%,
+          white 50%,
+          lightblue 75%,
+          white 100%
+        );
+        background: linear-gradient(90deg, transparent 50%, black 50%) repeat-x
+          left top/ 10px 10px;
+      }
+      /* 放射漸層 由內至外*/
+      .radial_gradient {
+        background-image: radial-gradient(white, #ffa, pink);
+        /* 設定站點 */
+        background-image: radial-gradient(white 0%, #ffa 10%, pink 100%);
+      }
+
+      /* 背景圖、漸層可組合使用 因為漸層也是背景圖 */
+      .half_gradient {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("https://picsum.photos/600/600/?random=10");
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 重複利用 class 減少檔案 增加效率 -->
+    <div class="box bg_color">background_color</div>
+    <div class="box bg_image">background-image</div>
+    <div class="box bg_image bg_repeat_x">background_repeat_x</div>
+    <div class="box bg_image bg_repeat_y">background_repeat_y</div>
+    <div class="box bg_image bg_repeat_no">background_repeat_no</div>
+    <div class="box bg_size">background_size</div>
+    <div class="box bg_image bg_repeat_no bg_position">background_size</div>
+    <div class="pikachu">皮卡丘</div>
+    <div class="box bg_abbr">縮寫版</div>
+    <div class="box bg_three">多張背景</div>
+    <div class="box linear_gradient">線性漸層</div>
+    <div class="box radial_gradient">線性漸層</div>
+    <div class="box half_gradient">線性漸層</div>
+  </body>
+</html>

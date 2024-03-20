@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 75%;
+            margin: auto;
+            border: 1px solid #000;
+            padding: 0 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4 {
+            padding: 1rem;
+        }
+
+        .box1 {
+            background: pink;
+        }
+
+        .box2 {
+            background: palegreen;
+        }
+
+        .box3 {
+            background: paleturquoise;
+        }
+
+        .box4 {
+            background: blanchedalmond;
+        }
+
+
+        .left {
+            left: 0px;
+        }
+
+        .top {
+            top: 0px;
+        }
+
+        .right {
+            right: 0px;
+        }
+
+        .bottom {
+            bottom: 0px;
+        }
+
+
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>position:relative</h1>
+        <h2>當元素是相對定位時</h2>
+        <ul>
+            <li>使用位移屬性(top、right、bottom、left) 會以原來的位置移動<br>
+                並保留原先的空間 不會其他元素佔據</li>
+            <li>沒有任何位移屬性 只有設定 position:relative 物件在原位固定不動<br>
+                因 relative 常被作為 absolute 子元素位移目標的依據</li>
+            <li>進入定位層 可以設定 z-index </li>
+        </ul>
+        <div class="box1">
+            <h1>box1</h1>
+            <p>房子是一種我對都能尋找加上總是對我，車輛漸漸也想全身工資山西主角您可以發送，完全醫療或者信箱詳細訊息，我看女士居住麻煩之下是因為，儘管部落格在這個特別大盤氣息醫藥彩色鄉民們精品，試題雖然衣服朋友，破。</p>
+        </div>
+        <div class="box2 relative left top right bottom">
+            <h1>box2</h1>
+            <p>房子是一種我對都能尋找加上總是對我，車輛漸漸也想全身工資山西主角您可以發送，完全醫療或者信箱詳細訊息，我看女士居住麻煩之下是因為，儘管部落格在這個特別大盤氣息醫藥彩色鄉民們精品，試題雖然衣服朋友，破。</p>
+        </div>
+        <div class=" box3">
+            <h1>box3</h1>
+            <p>房子是一種我對都能尋找加上總是對我，車輛漸漸也想全身工資山西主角您可以發送，完全醫療或者信箱詳細訊息，我看女士居住麻煩之下是因為，儘管部落格在這個特別大盤氣息醫藥彩色鄉民們精品，試題雖然衣服朋友，破。</p>
+        </div>
+        <div class="box4">
+            <h1>box4</h1>
+            <p>房子是一種我對都能尋找加上總是對我，車輛漸漸也想全身工資山西主角您可以發送，完全醫療或者信箱詳細訊息，我看女士居住麻煩之下是因為，儘管部落格在這個特別大盤氣息醫藥彩色鄉民們精品，試題雖然衣服朋友，破。</p>
+        </div>
+    </div>
+
+    <div class="container relative">
+        <h1>position:absolute</h1>
+        <h2>當元素是絕對定位時</h2>
+        <ul>
+            <li>若沒有任何位移屬性 該元素會脫離正常流向 進入定位層<br>
+                後方元素會流動置絕對定位元素的下方(被遮住)</li>
+            <li>若祖先元素找不到定位點(absolute、relative、fixed)<br>
+                最後會以 HTML 根元素作為位移依據</li>
+        </ul>
+        <div class="box1">
+            <h1>box1</h1>
+            <p>房子是一種我對都能尋找加上總是對我，車輛漸漸也想全身工資山西主角您可以發送，完全醫療或者信箱詳細訊息，我看女士居住麻煩之下是因為，儘管部落格在這個特別大盤氣息醫藥彩色鄉民們精品，試題雖然衣服朋友，破。</p>
+        </div>
+        <div class="box2 absolute left top">
+            <h1>box2</h1>
+            <p>房子是一種我對都能尋找加上總是對我，車輛漸漸也想全身工資山西主角您可以發送，完全醫療或者信箱詳細訊息，我看女士居住麻煩之下是因為，儘管部落格在這個特別大盤氣息醫藥彩色鄉民們精品，試題雖然衣服朋友，破。</p>
+        </div>
+        <div class=" box3">
+            <h1>box3</h1>
+            <p>房子是一種我對都能尋找加上總是對我，車輛漸漸也想全身工資山西主角您可以發送，完全醫療或者信箱詳細訊息，我看女士居住麻煩之下是因為，儘管部落格在這個特別大盤氣息醫藥彩色鄉民們精品，試題雖然衣服朋友，破。</p>
+        </div>
+        <div class="box4">
+            <h1>box4</h1>
+            <p>房子是一種我對都能尋找加上總是對我，車輛漸漸也想全身工資山西主角您可以發送，完全醫療或者信箱詳細訊息，我看女士居住麻煩之下是因為，儘管部落格在這個特別大盤氣息醫藥彩色鄉民們精品，試題雖然衣服朋友，破。</p>
+        </div>
+    </div>
+</body>
+
+</html>

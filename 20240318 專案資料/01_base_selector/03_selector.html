@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+        1. 以 . 選擇該 class
+        2. 只允許使用英文、數字、- 與 _
+        3. 以字元開頭 不能以數字開頭
+            .1color → 不行 使用數字開頭
+            .text-color → 可以
+            .text_color → 可以
+        4. 可以用中文命名 但不建議
+        5. 有區分大小寫
+        */
+      .color {
+        color: #00ff00;
+      }
+      .text {
+        font-size: 30px;
+      }
+      li {
+        color: green;
+      }
+
+      .active {
+        color: red;
+      }
+      .font {
+        font-size: 30px;
+        font-weight: bolder;
+      }
+
+      #header {
+        color: pink;
+      }
+      #main {
+        color: lightgreen;
+      }
+      #sidebar {
+        color: lightblue;
+      }
+      #footer {
+        color: deeppink;
+      }
+      #header,
+      #main,
+      #sidebar,
+      #footer {
+        font-size: 1.5rem;
+      }
+      /* 半形空白 為後代選擇器 選擇到兒子與孫子們 */
+      nav p {
+        color: blueviolet;
+      }
+      /* > 為子代選擇器 只選擇到兒子(只選擇一層) */
+      nav > p {
+        color: red;
+      }
+      /* * 全域選擇器(通用選擇器) 全部元素都選(除了偽元素 :: before、 :: after) */
+      * {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS選擇器</h1>
+    <p>CSS 有非常多選擇器 能幫助我們在撰寫樣式時 方便分類及選擇目標</p>
+
+    <h2 class="color text">class 選擇器</h2>
+    <p>class 具有重複使用的特性 是CSS使用最頻繁的選擇器</p>
+
+    <h2>使用場景</h2>
+    <h3>1. 相同元素 但需要不同外觀時</h3>
+    <ul>
+      <li>Lorem ipsum dolor sit ame.</li>
+      <li class="active">Lorem ipsum dolor sit ame.</li>
+      <li>Lorem ipsum dolor sit ame.</li>
+    </ul>
+
+    <h3>2. 重複使用時</h3>
+    <p>
+      我<a href="#" class="font">和</a>自身。 千萬<em class="font">夫妻</em>。
+    </p>
+
+    <h3>id 選擇器</h3>
+    <!-- 一份文件 只允許獨一無二的 id 名稱
+         id 常被用在 網頁區塊名稱 或是 JS、JQuery 操縱元素的選擇器
+    -->
+    <div id="header">header 區塊</div>
+    <div id="main">main 區塊</div>
+    <div id="sidebar">sidebar 區塊</div>
+    <div id="footer">footer 區塊</div>
+
+    <h1>後代、子代選擇器</h1>
+    <nav>
+      <p>Lorem ipsum dolor sit ame.</p>
+      <div>
+        <p>Lorem ipsum dolor sit ame.</p>
+      </div>
+    </nav>
+  </body>
+</html>

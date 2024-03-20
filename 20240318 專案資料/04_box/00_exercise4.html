@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            width: 500px;
+            height: 500px;
+            background: #333;
+            /* 設定相對定位點 使子元素依據位移 並保留子元素在裡面*/
+            position: relative;
+            margin: auto;
+        }
+
+
+        .child1 {
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+            position: absolute;
+            left: 100px;
+            z-index: 5;
+            /* 設定水平、垂直置中
+            posiion:t absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); */
+        }
+
+        .child2 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 150px;
+            z-index: 6;
+        }
+
+        .child3 {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: absolute;
+            left: 200px;
+            z-index: 4;
+        }
+    </style>
+</head>
+
+<body>
+    <p style="margin:auto; background: lemonchiffon;">當元素進入定位層時 可以使用 z-index 來變更圖層排序 數值越大越上層</p>
+    <div class="parent">
+        <div class="child1"></div>
+        <div class="child2"></div>
+        <div class="child3"></div>
+    </div>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, maxime ut dolores atque iste ad ab sed modi ipsam voluptatum doloribus vel voluptatibus labore ipsa sapiente libero amet fugiat maiores, a corrupti aut assumenda! Omnis voluptatum corporis numquam porro laborum corrupti, quaerat totam repudiandae earum aspernatur sit atque aliquid tempore.</p>
+</body>
+
+</html>
