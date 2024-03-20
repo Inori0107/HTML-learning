@@ -1,0 +1,38 @@
+<!-- html 結構 -->
+<!DOCTYPE html>
+<!-- lang 語系 -->
+<!-- html 根元素  在CSS 偽類 : root  -->
+<html lang="zh-tw">
+
+    <head>
+        <!-- UTF-8 編碼 確保瀏覽該網頁時正常 如果沒設定 他國人士的裝置瀏覽時 會出現亂碼 -->
+        <meta charset="UTF-8">
+        <!-- RWD 需使用這行 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- content 設定瀏覽器搜尋時 下方的網頁說明 -->
+        <meta name="description" content="起始網頁"> 
+        <title>basic element</title>
+        <!-- 連接外部樣式表 -->
+        <link rel="stylesheet" href="./css/example.css">
+        <!-- style 以設定該網頁的樣式 -->
+        <style>
+            body {
+                background-color: aqua;
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <button id="clickme">按鈕</button>
+        <!-- 連接外部 JS檔案 -->
+        <script src="./js/example.js"></script>
+        <script>
+            const clickme = document.getElementById('clickme');
+            clickme.onclick = function () {
+                alert('hello world!');
+            }
+        </script>
+    </body>
+
+</html>

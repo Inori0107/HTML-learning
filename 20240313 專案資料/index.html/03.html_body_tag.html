@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="body常用標籤">
+        <title>body tag</title>
+        <link rel="stylesheet" href="./css/example.css">
+        <style>
+            body {
+                background-color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 常用標籤 -->
+        <h2>超連結 a</h2>
+        <a href="#bottom">網頁底部</a><br>
+        <!-- a標籤 標記了Google--> 
+        <!-- href = hypertext reference -->
+        <a href="https://www.google.com">Google</a>
+        <!-- _blank 另開分頁 -->
+        <a href="https://www.google.com" target="_blank">Google</a>
+
+        <h2>ol 有序清單</h2>
+        <ol>
+            <li>無職轉生</li>
+            <li>孤獨搖滾</li>
+            <li>福星小子</li>
+        </ol>
+        <!-- emmet  ul > li*N > a 快速啟用清單-->
+        <h2>ul 無序清單</h2>
+        <ul>
+            <li>吃飯</li>
+            <li>睡覺</li>
+            <li>寫程式</li>
+        </ul> <hr>
+
+        <h2>HTML 巢狀概念</h2>
+        <p>巢狀不只存在於HTML 其他技術也有此概念</p>
+        <p>有巢狀就會有父子或祖先關係 而內外產生的關係 則稱為兄弟關係</p>
+        <ul>
+            <li>
+            <h3>前端技能</h3>
+            <ol>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ol>
+            </li>
+            <h3>後端技能</h3>
+            <ol>
+                <li>PHP</li>
+                <li>MySQL</li>
+                <li>Node.js</li>
+            </ol>
+        </ul> <hr>
+
+        <h2>圖片 img</h2>
+        <!-- picsum 假圖 /長/寬/ random 是指該尺寸隨機的編碼 -->
+        <img src="https://picsum.photos/300/300/?random=1">
+        <img src="https://picsum.photos/300/300/?random=2">
+        <img src="https://picsum.photos/300/300/?random=3">
+        <img src="https://picsum.photos/300/300/?random=4"> 
+        <!--  -->
+        <h3>絕對路徑</h3>
+        <!-- alt 替代文字 title 圖片標題 鼠標移至圖片顯示的名稱 -->
+        <img src="https://watershedcreative.com/naked/img/dom-tree.png" alt="html tree" title="html tree">
+        <h3>相對路經</h3>
+        <!-- 找尋資料夾中的其他檔案 ./ -->
+        <img src="./images/tree-736885_1280.jpg" alt="tree" width="500">
+        <hr>
+        <!-- 錨點 #ID 對應所選區塊 -->
+        <p id="bottom">網頁底部的位置</p>    
+        <a href="#">跳回頂端</a> <hr>
+    </body>
+</html>

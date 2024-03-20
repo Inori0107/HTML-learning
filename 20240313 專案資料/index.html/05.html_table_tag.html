@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>頁框</h2>
+        <a href="./others/hello.html" target="myframe">載入 hello.html 到一個 name 叫 myframe 的頁框裡面</a> <br>
+        <iframe src="./others/main.html" frameborder="0" width="600" height="400" scrolling="no" name="myframe"></iframe> <br>
+        <a href="./others/surprise.html" target="myframe">驚喜</a> <br>
+        
+        <h2>表格</h2>
+        <!-- table>tr*4>td*2 -->
+        <!-- cellspacing 儲存格之間的距離  cellpadding 儲存格的內距(內容與儲存格的距離) -->
+        <table border="1" width="600" height="400" cellspacing="10" cellpadding="10">
+            <caption>素材農量</caption>
+            <thead>
+                <tr align="center">
+                    <th>物品名稱</th>
+                    <th>數量</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- colspan 欄合併(左右) -->
+                <!-- rowspan 列合併(上下) -->
+                <!-- 要記得去除被合併的項目 -->
+                <tr align="center">
+                    <td rowspan="2">沙漏</td>
+                    <td>10</td>
+                </tr>
+                <tr align="center">
+                    <td>15</td>
+                </tr>
+                <tr align="center">
+                    <td>可樂果</td>
+                    <td>10</td>
+                </tr>
+                <tr align="center">
+                    <td>辣椒</td>
+                    <td>110</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr align="center">
+                    <td colspan="2">總數</td>
+                </tr>
+            </tfoot>
+        </table>
+        <hr>
+        <h2>常用表單</h2>
+        <form>
+            <table border="1" width="75%" cellspacing="0" cellpadding="10">
+                <tr>
+                    <td width="100">帳號:</td>
+                    <td><input type="text" size="30" maxlength="10" placeholder="請輸入帳號" name="ID"></td>
+                </tr>
+                <tr>
+                    <td width="100">密碼</td>
+                    <td><input type="password" placeholder="請輸入密碼" name="pw"></td>
+                </tr>
+                <tr>
+                    <td width="100"> 性別</td>
+                    <td>
+                        <!-- radio 為單選 name 用於後端 需相同以表同一組單選 checked 為預設勾選-->
+                        <input type="radio" value="男" checked>男
+                        <input type="radio" value="女">女
+                    </td>
+                </tr>
+                <tr>
+                    <td>興趣</td>
+                    <td>
+                        <input type="checkbox" value="拍照" name="like">拍照
+                        <input type="checkbox" value="看書" name="like">看書
+                        <input type="checkbox" value="程式" name="like">程式
+                        <input type="checkbox" value="睡覺" name="like">睡覺
+                        <input type="checkbox" value="旅行" name="like" checked>旅行
+                    </td>
+                </tr>
+                <tr>
+                    <td>出生地</td>
+                    <td>
+                        <select>
+                            <option value="台北">台北</option>
+                            <option value="桃園">桃園</option>
+                            <option value="台中">台中</option>
+                            <option value="台南">台南</option>
+                            <option value="高雄">高雄</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上傳資料</td>
+                    <td><input type="file" name="up_file"></td>
+                </tr>
+                <tr>
+                    <td>留言訊息</td>
+                    <td><textarea name="msg" cols="30" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit">
+                        <input type="reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
