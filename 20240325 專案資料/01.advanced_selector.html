@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 30px;
+      }
+
+      h1 {
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        margin-top: 1rem;
+        margin-bottom: 0;
+      }
+
+      h3 {
+        margin: 15px 0;
+        padding-top: 15px;
+      }
+
+      h4 {
+        margin: 1rem 0;
+      }
+
+      /* * 為全域選擇器 */
+      * {
+        list-style: none;
+        font-family: "微軟正黑體";
+      }
+
+      /* 根元素 = html 標籤*/
+      :root {
+        font-size: 1rem;
+      }
+
+      /* 偽類家族一種 用 : 表示 */
+      a[title="google"] {
+        color: green;
+        font-size: 2rem;
+      }
+
+      a[title="yahoo"] {
+        color: red;
+        font-size: 2rem;
+      }
+
+      /* 較模糊的選擇 只指定屬性 */
+      a[title] {
+        color: yellow;
+      }
+
+      /* 多屬性選擇 */
+      a[title='pc home'][href='http://www.phome.com']
+      {
+        color: blue;
+        font-size: 2rem;
+      }
+
+      img[src*="/200/200/"] {
+        border: 10px solid red;
+      }
+
+      img[src^='https://picsum.photos/100/100/?random=10']
+      {
+        border: 5px solid green;
+      }
+
+      img[src$="random=3"] {
+        border: 5px solid blue;
+      }
+
+      /* .case1 .abc+p */
+      .case1 h2 + p {
+        color: red;
+        font-size: 1.5rem;
+      }
+
+      .case2 h2 ~ p {
+        color: coral;
+      }
+
+      .menu1 {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background: pink;
+        /* overflow: hidden; */
+      }
+
+      .menu1 li {
+        float: left;
+        text-align: center;
+        width: 100px;
+        background: darkblue;
+      }
+
+      .menu1 li a {
+        background-color: deepskyblue;
+        padding: 1rem;
+        /* 變成區塊 占滿空間 */
+        display: block;
+        transition: 0.5s;
+      }
+
+      .menu1 li a:hover {
+        background: #ff0;
+        /* 文字顏色 */
+        color: #000;
+      }
+
+      /* 設定兄弟選擇器 除了第一個開始的 */
+      .menu1 li ~ li {
+        border-left: 5px solid lightcoral;
+      }
+
+      /* 兩兩一組 1+2 2+3 3+4 (第一個仍不顯示) */
+      .menu1 li + li {
+        border-right: 5px solid brown;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>1.屬性選擇器</h1>
+    <h2>單一屬性選擇器</h2>
+    <a href="http://www.google.com" title="google">Google</a>
+    <a href="http://www.yahoo.com" title="yahoo">yahoo</a>
+
+    <h2>多屬性選擇器</h2>
+    <a href="http://www.pc-home.com" title="pc home">pc home</a>
+
+    <h2>[attr*='屬性值']</h2>
+    <p>例如:img[src*='/200/200/']</p>
+    <p>選取 img 元素 其 src 屬性包含'/200/200/'字串的元素</p>
+    <img src="https://picsum.photos/200/200/?random=10" />
+
+    <h2>[attr^='屬性值']</h2>
+    <p>例如: img[src^='https://picsum.photos/100/100/?random=10']</p>
+    <p>
+      選取 img 元素 其 src 屬性 開頭為https://picsum.photos/100/100/?random=10
+    </p>
+    <img src="https://picsum.photos/100/100/?random=10" />
+
+    <h2>[attr$='屬性值']</h2>
+    <p>例如: img[src$='https://picsum.photos/100/100/?random=3']</p>
+    <p>選取 img 元素 其src屬性 結束為'random=3'</p>
+    <img src=" https://picsum.photos/100/100/?random=3" />
+    <hr />
+
+    <h1>2.同層相鄰選擇器 a+b</h1>
+    <p>選擇 a 元素同一層關係相鄰的 b 元素 (唯一)</p>
+    <div class="case1">
+      <h2 class="abc">aaaa</h2>
+      <p>bbbb</p>
+      <p>bbbb</p>
+      <p>bbbb</p>
+      <p>bbbb</p>
+    </div>
+    <hr />
+
+    <h1>3.同層全體選擇器 a~b</h1>
+    <p>選擇 a 元素開始 之後遇到同層級的 b 元素都是目標</p>
+    <div class="case2">
+      <h2>兄兄兄</h2>
+      <p>弟弟弟弟弟弟</p>
+      <p>弟弟弟弟弟弟</p>
+      <p>弟弟弟弟弟弟</p>
+      <p>弟弟弟弟弟弟</p>
+    </div>
+
+    <h4>例子: 選擇第一個 li 之後 所有 li 元素的套用樣式</h4>
+    <ul class="menu1">
+      <li><a href="#">LIST1</a></li>
+      <li><a href="#">LIST2</a></li>
+      <li><a href="#">LIST3</a></li>
+      <li><a href="#">LIST4</a></li>
+      <li><a href="#">LIST5</a></li>
+    </ul>
+  </body>
+</html>

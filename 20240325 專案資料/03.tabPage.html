@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #mytab {
+        display: flex;
+      }
+
+      .container {
+        width: 500px;
+        border: 1px solid #000;
+      }
+
+      label {
+        background: deeppink;
+        padding: 0.5rem 0.5rem;
+        text-align: center;
+        border: 1px solid #000;
+      }
+
+      label:hover {
+        cursor: pointer;
+        background: #fff;
+      }
+
+      label + label {
+        margin: left 5px;
+      }
+
+      .content1,
+      .content2,
+      .content3,
+      .content4 {
+        display: none;
+      }
+
+      /* 選擇誰來顯示 */
+      /* 藉由 radio 單一選項 */
+      /* 當 radio 被勾選時 同層全體選擇器(~) 會找到對應的內容顯示 */
+      #tab1:checked ~ .content1 {
+        display: block;
+      }
+      #tab2:checked ~ .content2 {
+        display: block;
+      }
+      #tab3:checked ~ .content3 {
+        display: block;
+      }
+      #tab4:checked ~ .content4 {
+        display: block;
+      }
+
+      input {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mytab">
+      <label for="tab1">tab01</label>
+      <label for="tab2">tab02</label>
+      <label for="tab3">tab03</label>
+      <label for="tab4">tab04</label>
+    </div>
+
+    <div class="container">
+      <input id="tab1" type="radio" name="tabControl" checked />
+      <input id="tab2" type="radio" name="tabControl" />
+      <input id="tab3" type="radio" name="tabControl" />
+      <input id="tab4" type="radio" name="tabControl" />
+      <div class="content1">
+        content1
+        一致也不發送突然玄幻集團服裝優質大大提到確定，農民套件娛樂女生公路漫畫，訪問最重要比賽應用，品牌一下子情感成員，組成到了，印象湖北當年選項女孩坐在曾經，站在政治回來風格，功能望着來了暫時基礎上合作奇蹟接觸重要一位標準轉移，而且能否攻擊世界盃穩定一名，現在目前超過聽說賓館塑膠專業今天她是職位咱們，組合傳播飯店交換開放，都在供應商手冊帳號，求助所以影響身體以前一款眼光臨床當天孩子，好看微微雲林查詢醫。
+      </div>
+      <div class="content2">
+        content2
+        一致也不發送突然玄幻集團服裝優質大大提到確定，農民套件娛樂女生公路漫畫，訪問最重要比賽應用，品牌一下子情感成員，組成到了，印象湖北當年選項女孩坐在曾經，站在政治回來風格，功能望着來了暫時基礎上合作奇蹟接觸重要一位標準轉移，而且能否攻擊世界盃穩定一名，現在目前超過聽說賓館塑膠專業今天她是職位咱們，組合傳播飯店交換開放，都在供應商手冊帳號，求助所以影響身體以前一款眼光臨床當天孩子，好看微微雲林查詢醫。
+      </div>
+      <div class="content3">
+        content3
+        一致也不發送突然玄幻集團服裝優質大大提到確定，農民套件娛樂女生公路漫畫，訪問最重要比賽應用，品牌一下子情感成員，組成到了，印象湖北當年選項女孩坐在曾經，站在政治回來風格，功能望着來了暫時基礎上合作奇蹟接觸重要一位標準轉移，而且能否攻擊世界盃穩定一名，現在目前超過聽說賓館塑膠專業今天她是職位咱們，組合傳播飯店交換開放，都在供應商手冊帳號，求助所以影響身體以前一款眼光臨床當天孩子，好看微微雲林查詢醫。
+      </div>
+      <div class="content4">
+        content4
+        一致也不發送突然玄幻集團服裝優質大大提到確定，農民套件娛樂女生公路漫畫，訪問最重要比賽應用，品牌一下子情感成員，組成到了，印象湖北當年選項女孩坐在曾經，站在政治回來風格，功能望着來了暫時基礎上合作奇蹟接觸重要一位標準轉移，而且能否攻擊世界盃穩定一名，現在目前超過聽說賓館塑膠專業今天她是職位咱們，組合傳播飯店交換開放，都在供應商手冊帳號，求助所以影響身體以前一款眼光臨床當天孩子，好看微微雲林查詢醫。
+      </div>
+    </div>
+  </body>
+</html>

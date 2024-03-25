@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 大圓 */
+      .tai_chi {
+        width: 500px;
+        height: 500px;
+        border: 1px solid #000;
+        border-radius: 50%;
+        margin: auto;
+
+        position: absolute;
+        /* top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); */
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+
+        background-image: linear-gradient(270deg, #000 50%, #fff 50%);
+        box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+      .tai_chi::before {
+        content: "";
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: #000;
+        position: absolute;
+        top: 50%;
+        left: 25%;
+      }
+      .tai_chi::after {
+        content: "";
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        left: 25%;
+      }
+
+      .yin_yang {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 50;
+      }
+      .yin_yang::before {
+        content: "";
+        width: 50px;
+        height: 50px;
+        border: 1px solid #000;
+        border-radius: 50%;
+        margin: auto;
+        position: absolute;
+        top: 250%;
+        left: 0;
+        right: 0;
+        /* transform: translate ; */
+        background: #fff;
+      }
+      .yin_yang::after {
+        content: "";
+        width: 50px;
+        height: 50px;
+        border: 1px solid #000;
+        border-radius: 50%;
+        margin: auto;
+        position: absolute;
+        left: 0;
+        bottom: 250%;
+        right: 0;
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tai_chi">
+      <div class="yin_yang"></div>
+    </div>
+  </body>
+</html>
