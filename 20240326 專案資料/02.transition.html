@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hover {
+        height: 100px;
+        color: white;
+        line-height: 100px;
+        font-size: 2rem;
+        position: relative;
+        left: 0;
+        text-align: center;
+
+        /* 起始樣式 */
+        background: #000;
+        width: 100px;
+        /* 轉場屬性設定 */
+        /* width, background-color, font-size, transform,margin-top, left */
+        /* 預設為 all 也可設為 none */
+        transition-property: width, background-color, transform;
+        /* 持續時間 */
+        transition-duration: 1s;
+        /* ease: 預設值 */
+        /* linear: 線性、等速 ease-in: 由慢變快 ease-out: 由快到慢 ease-in-out: 慢速開始 後加速 最終減速*/
+        transition-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
+        transition-delay: 0.5s;
+        transition: width 0.5s 1s ease-in background-color 1s 2s ease-out;
+
+        /* 縮寫 先決定 持續時間 再來 延遲時間 */
+        /* transition: 1s 3s; */
+      }
+      /* 結束樣式 */
+      .hover:hover {
+        width: 50vw;
+        left: -70px;
+        background: darkgray;
+        font-size: 3rem;
+        transform: rotate(360deg);
+        left: 50px;
+        /* margin屬性 會將其他物件推開 */
+        /* margin-top: 100px; */
+      }
+
+      .hover span {
+        /* inline 無法進行變形 */
+        display: inline-block;
+        transition: 0.5s;
+        transform: rotate(360deg);
+      }
+
+      .hover span:hover {
+        transform: rotate(360deg);
+      }
+
+      label[for="checked-me"] {
+        /* 滑鼠指標 */
+        cursor: pointer;
+        background: darkmagenta;
+        color: white;
+        padding: 0.5rem;
+        display: inline-block;
+      }
+
+      .sidebar {
+        width: 100px;
+        color: white;
+        background: #000;
+        margin-left: -200px;
+        transition: 1s;
+      }
+      /* :checked 來連接 .sidebar (使之成為兄弟)*/
+      #checked-me {
+        display: none;
+      }
+      #checked-me:checked + .sidebar {
+        margin-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>transition(轉場) 或稱為過渡</h1>
+    <ul>
+      <li>
+        轉場是兩組樣式之間漸進式的轉換過程 有起始樣式或結束樣式
+        瀏覽器會將兩組樣式形成補間動畫(Tween)
+      </li>
+      <li>
+        必須要有狀態做觸發動作(狀態有很多種) 最常見是 :hover 或是 media、quary
+        斷點的變化 同樣能產生轉場效果
+      </li>
+    </ul>
+
+    <h1>hover 狀態</h1>
+    <div class="hover">
+      <span>hover</span>
+    </div>
+    <hr />
+
+    <h1>check狀態</h1>
+    <p>:checked 狀態改變 transition 發生</p>
+    <label for="checked-me">Checkme</label>
+    <input id="checked-me" type="checkbox" />
+
+    <div class="sidebar">
+      紛紛給予她們，焦點為此看來生活理解站內一直情節，股票有了住房尚未吃了電池意思本地精選下載將在，評論被人一體你的案例一流攝影容易富岡美好以及，其它就是，恐怕投資查看工程師符合視頻留下些什麼想像，形象直播主之下，位元如果你記錄欄目推坑大魔王花蓮網絡沉默做什麼公司，好像寫出來收集傳說本次麻煩股權漸漸以為，土地電話保留家園兩種教授競爭力快速多多每個人年輕人主席，沒什麼外觀教材保密也在真實性至今，擔心交通。
+    </div>
+  </body>
+</html>

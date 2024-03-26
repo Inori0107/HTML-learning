@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* 比較暴力的 reset 除了 before、after 全部清除 */
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: "Noto Sans TC", sans-serif;
+      }
+      /* 繼承視窗 100%高度 */
+      html,
+      body {
+        height: 100%;
+      }
+      /* vh → view port height
+      body {
+        height: 100vh;
+      } */
+
+      /* 子元素才能繼承 body 100% 高度 */
+      section {
+        height: 100%;
+        background-color: #ffa;
+
+        /* 子元素的垂直居中 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      section:nth-child(odd) {
+        background: lightblue;
+      }
+      section:nth-child(even) {
+        background: lemonchiffon;
+      }
+
+      h1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .dashed {
+        display: inline-block;
+        border: 5px dashed #000;
+        width: 200px;
+        height: 200px;
+        position: relative;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      /* px、em、rem、% 
+        % 指的是 元素本身尺寸 ex: width: 300px → 50% = 150px
+        第一個值為 X 軸 第二個值為 Y 軸  
+      */
+      .translate {
+        /* transform-origin 不影響 translate (沒有作用) */
+        transform: translate(-50%, -50%);
+        /* transform: translateX(-50%);
+        transform: translateY(-50%);
+        結果會由最後的 transform 所覆蓋 */
+      }
+
+      .scale {
+        /* 數值以倍數顯示 可為負值 → 會使物件倒放 */
+        /* transform: scaleX()、scaleY() */
+        transform: scale(-1);
+
+        /* 改變原點 預設為 center center */
+        /* em、px、%、left、right、top、bottom、center */
+        transform-origin: 100% 100%;
+      }
+
+      .rotate {
+        /* 以右上角為圓點 正為順時針 負為逆時針 */
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+      }
+
+      .skew {
+        /* transform: skewX(30deg);
+        transform: skewY(-50deg); */
+        transform: skew(50deg, 50deg);
+        transform-origin: left top;
+      }
+
+      .more {
+        /* 多屬性值 由左至右執行 */
+        transform: translateX(100px) rotate(45deg) scale(1.5);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>translate (位移)</h1>
+      <div class="dashed">
+        <div class="box translate">translate (位移)</div>
+      </div>
+    </section>
+
+    <section>
+      <h1>Scale(縮放)</h1>
+      <div class="dashed">
+        <div class="box scale">Scale(縮放)</div>
+      </div>
+    </section>
+
+    <section>
+      <h1>Rotate</h1>
+      <div class="dashed">
+        <div class="box rotate">Rotate(旋轉)</div>
+      </div>
+    </section>
+
+    <section>
+      <h1>Skew(傾斜)</h1>
+      <div class="dashed">
+        <div class="box skew">Skew(傾斜)</div>
+      </div>
+    </section>
+
+    <section>
+      <h1>more</h1>
+      <div class="dashed">
+        <div class="box more">More</div>
+      </div>
+    </section>
+  </body>
+</html>
