@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			p {
+				text-align: center;
+			}
+			table {
+				margin: auto;
+				border-collapse: collapse;
+				background: #fdd;
+				line-height: 32px;
+			}
+			td {
+				border: 1px solid #ccc;
+				text-align: center;
+			}
+			td:nth-child(1) {
+				width: 150px;
+			}
+			td:nth-child(2) {
+				width: 350px;
+			}
+			.form {
+				background: #ff9;
+			}
+			.form td:nth-child(2) {
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>公司名稱</td>
+				<td>大家來購物有限公司</td>
+			</tr>
+			<tr>
+				<td>公司電子信箱</td>
+				<td>service@test.labor.gov.tw</td>
+			</tr>
+			<tr>
+				<td>服務項目</td>
+				<td>網路購物服務</td>
+			</tr>
+		</table>
+		<br />
+		<form>
+			<table class="form">
+				<tr>
+					<td>客戶姓名</td>
+					<td><input type="text" size="20" /></td>
+				</tr>
+				<tr>
+					<td>電子信箱</td>
+					<td><input type="text" size="30" /></td>
+				</tr>
+				<tr>
+					<td>意見留言</td>
+					<td><textarea cols="30" rows="5"></textarea></td>
+				</tr>
+			</table>
+			<p>
+				<input type="submit" value="送出" onclick="alert(`歡迎蒞臨本網站，您的寶貴意見我們會儘速處理與回覆，謝謝`)" />
+				<input type="reset" value="重製" />
+			</p>
+		</form>
+	</body>
+</html>
