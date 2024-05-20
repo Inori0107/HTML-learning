@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.container {
+				margin: auto;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			.row {
+				display: flex;
+				width: 1000px;
+				height: 300px;
+				justify-content: center;
+				align-items: center;
+				background: #222;
+			}
+			.top {
+				width: 1000px;
+				height: 300px;
+				display: flex;
+				align-items: stretch;
+				padding: 20px;
+			}
+			.col {
+				width: 500px;
+				height: 200px;
+				/* background: #222; */
+				padding: 20px;
+			}
+			.left {
+				color: white;
+			}
+			.right {
+				color: white;
+				background: #333;
+				border: 1px solid #555;
+				border-radius: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="top">
+					<div class="right">
+						<h1>Change the background</h1>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam perspiciatis nisi tempora laborum pariatur voluptate consequatur quasi eveniet
+							quam molestiae?
+						</p>
+						<button>Example Button</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="left">
+						<h1>Change the background</h1>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam perspiciatis nisi tempora laborum pariatur voluptate consequatur quasi eveniet
+							quam molestiae?
+						</p>
+						<button>Example Button</button>
+					</div>
+				</div>
+				<div class="col">
+					<div class="right">
+						<h1>Change the background</h1>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam perspiciatis nisi tempora laborum pariatur voluptate consequatur quasi eveniet
+							quam molestiae?
+						</p>
+						<button>Example Button</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

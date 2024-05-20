@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				font-family: "微軟正黑體";
+			}
+
+			body {
+				padding: 20px;
+			}
+
+			h2,
+			h3,
+			p {
+				margin: 1rem 0;
+			}
+
+			.row {
+				width: 1200px;
+				height: 300px;
+				border: 1px solid #ccc;
+				margin: 0 0 3rem 0;
+			}
+
+			.col {
+				background: #ffa;
+				margin: 10px;
+			}
+
+			.d-flex {
+				/* 宣告父元素為 彈性盒 */
+				display: flex;
+				/* (預設) 主軸為水平流向的排列 */
+				flex-direction: row;
+				/* (預設) 不會換行 */
+				flex-wrap: nowrap;
+				/* (預設) 主軸 main axis 的對齊點為 main-start*/
+				justify-content: flex-start;
+				/* (預設) 次軸 cross axis 將彈性項目延伸拉長 */
+				align-items: stretch;
+			}
+
+			.flex-direction {
+				/* 垂直流向 */
+				flex-direction: column-reverse;
+			}
+
+			.justify-content {
+				justify-content: center;
+				/* justify-content: space-evenly; */
+			}
+
+			.align-items {
+				/* align-items: stretch; */
+				/* align-items: center; */
+				align-items: flex-end;
+			}
+			.flex-wrap {
+				flex-wrap: wrap;
+			}
+			.w1 {
+				width: 380px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Flexbox</h1>
+		<p>設定分為兩個部分 : 彈性容器 (flex container) 與 彈性項目 (flex item)</p>
+		<p>flexbox 是父元素與子元素之間的關係(各自有屬性設定)</p>
+		<img src="./flex_terms.png" />
+
+		<h1>彈性盒設定</h1>
+		<h2>1. display:flex</h2>
+		<p>設定父元素</p>
+		<div class="row d-flex">
+			<div class="col">彈性項目 01</div>
+			<div class="col">彈性項目 02</div>
+			<div class="col">彈性項目 03</div>
+		</div>
+
+		<h2>2. flex-direction 軸向設定</h2>
+		<p>flex-direction 決定主軸是 水平或垂直</p>
+		<p>flex-direction:row 主軸為水平 彈性項目水平排列</p>
+		<p>flex-direction:column 主軸為垂直 彈性項目垂直排列</p>
+		<p>*flex-direction:row-reverse*</p>
+		<div class="row d-flex flex-direction">
+			<div class="col">彈性項目 01</div>
+			<div class="col">彈性項目 02</div>
+			<div class="col">彈性項目 03</div>
+		</div>
+
+		<h2>3. 決定主軸後 (確定 flex-direction) 可以設定對齊軸點</h2>
+		<p>justify-content 設定主軸的對齊 flex-start、flex-end、center</p>
+		<p>justify-content 設定主軸的對齊 space-around、space-between、space-evenly</p>
+		<p>align-items 設定次軸的對齊 stretch(預設)、flex-start、center、flex-end</p>
+		<p>align-items: stretch 會影響區塊的占滿</p>
+		<div class="row d-flex justify-content align-items">
+			<div class="col">彈性項目 01</div>
+			<div class="col">彈性項目 02</div>
+			<div class="col">彈性項目 03</div>
+		</div>
+
+		<h2>4. flex-wrap 設定彈性項目 單行、多行顯示</h2>
+		<p>nowrap 不換行(單行) 會限縮原先的寬度</p>
+		<p>wrap 換行(多行) 彈性項目的總寬度 必須超過彈性容器</p>
+		<p>*wrap-reverse*</p>
+		<div class="row d-flex flex-wrap">
+			<div class="col w1">彈性項目 01</div>
+			<div class="col w1">彈性項目 02</div>
+			<div class="col w1">彈性項目 03</div>
+			<div class="col w1">彈性項目 04</div>
+			<div class="col w1">彈性項目 05</div>
+			<div class="col w1">彈性項目 06</div>
+		</div>
+
+		<h2>5. 彈性盒裡面可以有彈性和嗎?</h2>
+		<p>設定父元素</p>
+		<div class="row d-flex" style="justify-content: center; align-items: center">
+			<div class="col d-flex" style="width: 300px; height: 200px; justify-content: center; align-items: center">彈性項目</div>
+		</div>
+	</body>
+</html>
