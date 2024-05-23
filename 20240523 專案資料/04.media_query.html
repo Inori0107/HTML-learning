@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				font-family: "微軟正黑體";
+				box-sizing: border-box;
+			}
+			:root {
+				/* CSS 原生變數 */
+				/* 可用於預先設定好 主題顏色 */
+				--primary: blue;
+				--secondary: gray;
+				--success: green;
+				--info: lightblue;
+				--warning: orange;
+				--danger: red;
+			}
+			body {
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: url("https://picsum.photos/1920/1080/?random=1") no-repeat center/cover;
+			}
+			.container {
+				width: 95%;
+				background: #fff;
+				margin: 1rem auto;
+				padding: 15px;
+				border: 1px solid #000;
+			}
+			h1 {
+				/* 引用原生變數 var() */
+				color: var(--warning);
+				background: var(--success);
+				margin-bottom: 1rem;
+			}
+			.isShow {
+				display: none;
+			}
+
+			.sidebar {
+				width: 150px;
+				padding: 1rem;
+				background: #000;
+				color: white;
+				border-radius: 1rem;
+				position: fixed;
+				left: 0;
+				display: none;
+			}
+
+			/* @ => 使用 css 的一種功能 */
+			/* min-width 尺寸以上(包含) => 當裝置尺寸 576px 以上 使用裡面的樣式 (條件) */
+			/* min-width: 576px => 斷點 (break-point) */
+			@media (min-width: 576px) {
+			}
+			/* max-width 尺寸以下(包含) => 當裝置尺寸 576px 以下 使用裡面的樣式 (條件) */
+			@media (max-width: 576px) {
+			}
+
+			@media (min-width: 576px) and (max-width: 768px) {
+			}
+
+			/* ------------------------------------------------------------- */
+			/* 第一個斷點為 最外圍 => 0 ~ 575px*/
+			/* 第二個斷點 */
+			@media (min-width: 576px) {
+				body {
+					background: url("https://picsum.photos/1920/1080/?random=2") no-repeat center/cover;
+				}
+				.container {
+					border: 3px dashed #000;
+				}
+				h1.title {
+					color: yellow;
+					background: darkorchid;
+				}
+			}
+			/* 第三個斷點 */
+			@media (min-width: 768px) {
+				body {
+					background: url("https://picsum.photos/1920/1080/?random=3") no-repeat center/cover;
+				}
+				.container {
+					width: 80%;
+					border: 10px outside orange;
+					border: 10px dashed white;
+				}
+				h1.title {
+					color: yellow;
+					background: green;
+				}
+			}
+			/* 第四個斷點 */
+			@media (min-width: 992px) {
+				body {
+					background: url("https://picsum.photos/1920/1080/?random=4") no-repeat center/cover;
+					/* 背景模糊 */
+					backdrop-filter: blur(10px);
+				}
+				.container {
+					border: 10px solid rgb(35, 50, 80);
+					outline: none;
+					box-shadow: 0 0 50px 25px rgba(0, 0, 0, 0.5);
+				}
+				h1.title {
+					color: yellow;
+					background: green;
+				}
+				.isShow {
+					display: inline;
+				}
+				.sidebar {
+					display: block;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>響應式網頁設計 <span class="isShow">(Responsive web design, RWD)</span></h1>
+			<ul>
+				<li>1. 響應式網頁設計 讓內容如水一般能適應各種裝置的容器 並能在每個裝置使用</li>
+				<li>2. 媒體查詢的斷點 (breakpoint) 為不同裝置尺寸設定通過的位置點 當通過則套用樣式</li>
+				<li>3. 響應式一般使用的單位為 rem、%、vw、vh... 字體大小會使用 rem 容器 width、height 會以 % 為主</li>
+				<li>4. 寫得時候 以行動裝置為優先 從小尺寸開始思考設計</li>
+			</ul>
+		</div>
+		<div class="sidebar">觀察指南回答偉大加大職工第二次樣子你知道師傅標籤到了女人專。</div>
+	</body>
+</html>
