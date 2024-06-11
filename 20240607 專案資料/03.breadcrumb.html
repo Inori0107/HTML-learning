@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./bootstrap.css" />
+	</head>
+	<style>
+		.divide-1 {
+			--bs-breadcrumb-divider: ">";
+		}
+		.divide-2 {
+			--bs-breadcrumb-divider: "";
+		}
+		.breadcrumb-item::before {
+			font-size: 2rem;
+			position: relative;
+			top: -10px;
+		}
+	</style>
+	<body>
+		<div class="container">
+			<h1>麵包屑 (Breadcrumb)</h1>
+			<nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item"><a href="#">Library</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Library</li>
+				</ol>
+			</nav>
+			<nav class="divide-1" aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item"><a href="#">Library</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Library</li>
+				</ol>
+			</nav>
+			<nav class="divide-2" aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item"><a href="#">Library</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Library</li>
+				</ol>
+			</nav>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>
