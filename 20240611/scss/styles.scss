@@ -9,6 +9,12 @@
 	margin: auto;
 }
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
@@ -54,6 +60,7 @@ $width: 200px; // 全域變數
 
 /* 符合 CSS 規範的值都可以當作變數的值 */
 $gradient: linear-gradient(0deg, rgb(0, 0, 50) 0%, rgb(0, 50, 200) 50%, rgb(0, 0, 255) 100%);
+
 $border: 5px solid #fff;
 $border-radius: 0.5rem; // - 命名在 Sass 是合法的，js 不行
 $padding: 0.5rem 0.5rem;
@@ -64,12 +71,14 @@ h1 {
 	background: $gradient;
 	color: $white;
 	border: $border;
+	border-radius: $border-radius;
 	padding: $padding;
-	margin-bottom: $margin-bottom;
 	box-shadow: $shadow;
+	margin-bottom: $margin-bottom;
 }
 
-/*流程控制*/
+/* 流程控制 -------------------------------------- */
+// $number: 1;
 $number: random(3);
 
 .mybox {
@@ -80,20 +89,22 @@ $number: random(3);
 	align-items: center;
 
 	@if ($number == 1) {
-		background: red;
-	} @else if ($number == 2) {
-		background: green;
+		background-color: red;
+	} @else if($number == 2) {
+		background-color: green;
 	} @else {
-		background: blue;
+		background-color: blue;
 	}
-	// 判斷會過 但沒有被編譯出去
+
+	// 判斷會過，但沒有被編譯出去
 	@if (10 == 10px) {
 		font-style: italic;
 	}
+
 	$stand: "白金之星";
 	$master: "承太郎";
 
-	// and 同等 &&
+	// and 是 且 的意思，兩個條件都要符合
 	@if ($stand == "白金之星" and $master == "承太郎") {
 		color: white;
 		font-size: 3rem;
@@ -101,82 +112,84 @@ $number: random(3);
 		color: yellow;
 	}
 
-	// or 同等 ||
-	$isGoodDay: false;
+	// or 是 或 的意思，其中一個條件符合即可
+	$isGoodDay: true;
 	$isHappy: false;
 	$isRich: false;
 
 	@if ($isGoodDay or $isHappy or $isRich) {
-		background: yellow;
+		background-color: yellow;
 	}
 
+	/* 使用 not 來表示 !  */
 	$box-width: 50px;
-	// not 同等 !
 	@if not($box-width == 100px) {
-		border: 10px dashed yellow;
+		border: 10px dashed darkblue;
 	}
 
 	$mySpacing: 20px;
-	/* 用 if() 函式表示 三元運算子 因為是函式 所以不加 @*/
+	/* 用 if() 函式表示三元運算子，因為是函式 if 沒有 @ */
 	outline: if($mySpacing > 10px, 10px solid green, 10px solid black);
 }
 
-/* through 包含 end 這裡是 1 2 3*/
+/* through 包含 end，這裡是 1、2、3 */
 @for $i from 1 through 3 {
-	/* 插值語法 #{變數 / 運算式}*/
+	/* 插值語法 #{變數 或 運算式} */
 	.through-#{$i} {
 		width: 50px * $i;
 		height: 50px * $i;
 		display: inline-block;
-		background: #999;
+		background-color: #999;
 	}
 }
-/* to 不包含 end 這裡是 1 2 */
+
+/* to 不包含 end，這裡只有 1 與 2，沒有 3 */
 @for $i from 1 to 3 {
-	/* 插值語法 #{變數 / 運算式}*/
 	.to-#{$i} {
 		width: 50px * $i;
 		height: 50px * $i;
 		display: inline-block;
-		background: #999;
+		background-color: #999;
 	}
 }
 
-/* 嵌套巢狀*/
+/* 嵌套巢狀，它就像俄羅斯娃娃一層又一層 */
 #section04 {
+	h2 {
+		color: red;
+	}
+
 	p {
 		border-bottom: 1px solid #000;
 	}
-
 	.menu {
 		margin-top: 2rem;
 		padding: 0;
 		font-size: 0;
-
 		li {
 			display: inline-block;
 			font-size: 1rem;
 			width: 100px;
 			text-align: center;
-
 			a {
 				display: block;
-				background: #000;
+				background: black;
 				color: white;
 				text-decoration: none;
 				padding: 0.5rem;
-				// 往上一層套用
+				// & 符號表示父層選擇器是誰，這裡是 a
 				&:hover {
 					color: yellow;
-					background: darkorchid;
+					background-color: darkorchid;
 				}
 			}
 			& + li {
 				border-left: 1px solid yellow;
 			}
 		}
+
 		li + li {
-			border-left: 1px solid white;
+			border-left: 1px solid #fff;
 		}
 	}
 }
@@ -184,35 +197,51 @@ $number: random(3);
 #exercise {
 	.row {
 		display: flex;
+	}
 
-		.col {
-			width: 31.333333%;
-			margin: 1%;
-			background-color: #fff;
-			border: 1px solid #333;
-			padding: 1rem;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			transition: 0.5s;
-			position: relative;
-			top: 0;
-			text-align: center;
+	.col {
+		width: 31.333333%;
+		margin: 1%;
+		background-color: #fff;
+		border: 1px solid #333;
+		padding: 1rem;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		transition: 0.5s;
+		position: relative;
+		top: 0;
 
-			&:hover {
-				transform: translateY(-20px);
-				box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-			}
+		&:hover {
+			transform: translateY(-20px);
+			// margin-top: -30rem;
+			// top: -100px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+		}
+	}
 
-			img {
-				width: 100%;
-				padding: 1px;
-			}
+	img {
+		max-width: 100%;
+	}
+
+	a {
+		text-decoration: none;
+		color: black;
+		transition: 0.5s;
+		&:hover {
+			text-decoration: underline;
+			color: green;
 		}
 	}
 }
 
-/* extend */
+/* extend ------------------------------------------ */
 // 用 % 定義一個 extendName
 %myExtend {
+	width: 50px;
+	height: 50px;
+	float: left;
+}
+
+.myExtend {
 	width: 50px;
 	height: 50px;
 	float: left;
@@ -221,94 +250,105 @@ $number: random(3);
 .box1 {
 	background: red;
 	@extend %myExtend;
+	// @extend .myExtend;
 }
 .box2 {
 	background: green;
 	@extend %myExtend;
+	// @extend .myExtend;
 }
 .box3 {
 	background: blue;
 	@extend %myExtend;
+	// @extend .myExtend;
 }
 
-#section06 {
-	clear: both;
-}
-/* 計算 */
+/* 計算 ------------------------------------------------------- */
 .box4 {
 	background: #000;
 
 	/* 加法 */
 	width: 50px + 50px;
-	height: 50px + 50;
+	width: 50px + 50; // 有、無單位相加可以
+	height: 50px + 50px;
+
 	/* 減法 */
-	width: 100px - 50;
+	width: 100px - 50px;
+	width: 100px - 50; // 有、無單位相減可以
 	height: 100px - 50px;
 
 	/* 乘法 */
 	width: 50px * 2;
-	// width: 50px * 2 px; 無法
-	/* 除法 */
-	// width: 100px / 2 px; 會通過 但 css 無法使用
-	// width: 100px / 2 ; 會通過 但 css 無法抓取單位
-	width: (100px / 2); // 習慣用 括號
+	// width: 50px * 2px; // oops 編譯掛了
+	height: 50px * 2;
 
-	/* 除法但使用變數 不須使用括號*/
+	/* 除法 */
+	// width: 100px / 2; // 會通過，但是 css 無法使用
+	// width: (100px / 2px); // 通過可使用，但是單位會被消除
+	width: (100px / 2); // 通過可使用，除法養成習慣用括號
+
+	/* 除法但使用變數，不需要括號 */
 	$child: 500px;
 	$mother: 10;
 	height: $child / $mother;
 
 	/* 餘數 mod */
-	margin-top: 20px %100;
+	margin-top: 20px % 100;
 }
 
-/* Function */
-// 定義函式
+/* Function ----------------------------------------------- */
+/* 定義函式 */
 @function randomFont() {
-	// random() 為 sass 內建函式
+	/* random() Sass 的內建函式 */
 	$result: random(3);
+
 	@if ($result == 1) {
 		@return 20px;
-	} @else if ($result == 2) {
+	} @else if($result == 2) {
 		@return 40px;
 	} @else {
 		@return 60px;
 	}
 }
 
+// 傳參數
 @function boxLength1($length, $base) {
 	@return $length * $base * 1px;
 }
-@function boxLength2($length: 100, $base: 2) {
+
+// 指定預設值
+@function boxLength2($length: 100, $base: 1) {
 	@return $length * $base * 1px;
 }
 
-.funcBox {
+.funcbox {
 	width: 100px;
 	height: 100px;
 	color: white;
-	background: #000;
-	// 呼叫函式
+	/* 呼叫函式 */
 	font-size: randomFont();
-	// 傳參數
+	/* 傳參數 */
 	width: boxLength1(100, 2);
 	height: boxLength2();
+	background: #000;
 }
 
 // px to rem
-@function pxToRem($px) {
+@function rem($px) {
+	// unit() 是內建函式，用來取得值的單位
 	@if (unit($px) == "px") {
 		@return ($px / 16px) * 1rem;
 	} @else {
 		@return ($px / 16) * 1rem;
 	}
 }
+
 .rem {
-	font-size: pxToRem(16px);
-	padding: pxToRem(48);
+	font-size: rem(16px);
+	padding: rem(48);
 }
 
-// 用一個等級來計算 字體大小
+// 用一個等級來計算字體大小
 $baseFontSize: 14px;
 $size: 2px;
 
@@ -317,7 +357,7 @@ $size: 2px;
 		$level: 1;
 	}
 
-	// round() 是內建函式 用來四捨五入
+	// round() 是內建函式，用來四捨五入
 	@return round($baseFontSize + $size * $level);
 }
 
@@ -337,27 +377,28 @@ $size: 2px;
 		flex-wrap: wrap;
 		.col {
 			box-sizing: border-box;
-			border: 1px solid #ccc;
+			border: 1px solid #333;
 			width: col-width(3);
 			padding: 1%;
 			margin: 1% 0;
-			color: lighten($color: black, $amount: 50%);
+			color: lighten(black, 50%);
 		}
 	}
 }
 
+/* Mixins ----------------------------------- */
 @mixin myMixin() {
 	width: 100px;
 	height: 100px;
 	background: #333;
 }
 
-.textMixin {
+.testMixin {
 	@include myMixin();
 }
 
 // 傳參數
-// 可以指定 預設值
+// 可以指定預設值，例如 $outline: 10px dashed pink
 @mixin box($width, $height, $bg, $border, $outline: 10px dashed pink) {
 	width: $width;
 	height: $height;
@@ -365,14 +406,15 @@ $size: 2px;
 	border: $border;
 	outline: $outline;
 }
+
 @mixin flex($main, $cross) {
 	display: flex;
 	justify-content: $main;
 	align-items: $cross;
 }
 
-.boxFlex {
-	@include box(100px, 100px, #333, 1px);
+.boxflex {
+	@include box(100px, 100px, #eee, 5px solid #000);
 	@include flex(center, center);
 }
 
@@ -386,23 +428,24 @@ $size: 2px;
 	border-radius: 0.5rem;
 }
 
-// 無參數時 可以省略括號
+// 無參數時可以省略括號
 @mixin box-shadow {
 	box-shadow: 0 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
 }
 
-@mixin btn-bg($bgColor) {
-	// 一般按鈕狀態
+// 用 mixin 設計一組按鈕滑入的效果
+@mixin btn-bg($bgcolor) {
+	// 按鈕一般狀態
 	& {
-		@include box-shadow;
-		background-color: $bgColor;
+		@include box-shadow; // mixin 可以嵌套另一個 mixin
+		background-color: $bgcolor;
 	}
-	// 按鈕滑過去
+	// 滑鼠滑過去的狀態
 	&:hover {
-		@if ($bgColor == #000) {
-			background-color: lighten($bgColor, 20%);
+		@if ($bgcolor == #000) {
+			background-color: lighten($bgcolor, 20%);
 		} @else {
-			background-color: darken($bgColor, 10%);
+			background-color: darken($bgcolor, 10%);
 		}
 	}
 }
@@ -410,18 +453,21 @@ $size: 2px;
 .btn-dark {
 	@include btn-bg(#000);
 }
+
 .btn-primary {
 	@include btn-bg($primary);
 }
+
 .btn-success {
 	@include btn-bg($success);
 }
+
 .btn-danger {
 	@include btn-bg($danger);
 }
 
-/* 使用 mixin + @content 設計 RWD*/
-// 定義斷點變數
+/* 使用 mixin + @content 設計 RWD ---------------------------- */
+// 定義一組斷點變數
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
@@ -454,8 +500,9 @@ $breakpoint-xxl: 1400px;
 	}
 }
 
-/* section09 為這個區塊使用 RWD*/
+/* section09 為這個區塊使用 RWD  */
 #section09 {
+	// xs
 	.container {
 		width: 100%;
 		margin: auto;
@@ -463,22 +510,28 @@ $breakpoint-xxl: 1400px;
 
 	.row {
 		display: flex;
+		flex-wrap: wrap;
 	}
+
 	.col {
 		width: 100%;
 		padding: 15px;
-		border: 1px solid #ccc;
+		border: 1px solid #333;
 	}
+
 	.col + .col {
 		margin-top: 20px;
 	}
+
 	@include sm {
 		.container {
 			width: 75%;
 		}
+
 		.col {
 			width: 50%;
 		}
+
 		.col + .col {
 			margin-top: 0;
 		}
@@ -502,5 +555,111 @@ $breakpoint-xxl: 1400px;
 		.col {
 			width: 10%;
 		}
+	}
+}
+
+/* list(列表) 就像 JS 的陣列，索引是從 1 開始取值，不是 0 !*/
+/* 一系列的項目值，可以是 空格或逗號 加以分隔 */
+$width_list: 100px, 200px, 300px;
+$marin_list: 10px 20px 30px 40px;
+$bgColor_list: red, green, blue;
+$zindex_list: 1 2 3 4;
+$border_list: 1px solid red, 1px solid green, 1px solid blue, 1px solid yellow;
+
+/* nth(list, index) 內建函式，取出 list 的索引值 */
+.list {
+	width: nth($width_list, 1);
+	width: nth($width_list, 2);
+	width: nth($width_list, 3);
+	border: nth($border_list, 1);
+	border: nth($border_list, 2);
+	border: nth($border_list, 3);
+	border: nth($border_list, 4);
+}
+
+/* index(list, value) 內建函式，取出索引 */
+.index {
+	line-height: index($width_list, 100px);
+	line-height: index($width_list, 200px);
+	line-height: index($width_list, 300px);
+}
+
+/* length($list) 內建函式，取出長度 */
+.length {
+	z-index: length($zindex_list);
+}
+
+@for $i from 1 through length($bgColor_list) {
+	// #{} 用來串接變數、運算式、或是呼叫函式後的值
+	.bg-#{nth($bgColor_list, $i)} {
+		background-color: nth($bgColor_list, $i);
+	}
+}
+
+/* @each 逐一取出列表的項目 value 值 */
+@each $value in $bgColor_list {
+	.each-bg-#{$value} {
+		background-color: $value;
+	}
+}
+
+/* Map */
+/*  
+const person={
+	name:'KaiFu',
+	ag:18
+}	
+*/
+$map1: (
+	primary: red,
+	secondary: green,
+	warning: blue
+);
+
+@each $key, $value in $map1 {
+	.bg-#{$key} {
+		background-color: $value;
+	}
+}
+
+$map2: (
+	size1: 100px,
+	size2: 200px,
+	size3: 300px
+);
+
+/* map2 */
+/*  map-keys($map) 取出 key，會變成一組 list */
+.map-keys {
+	color: map-keys($map2);
+}
+
+@each $key in map-keys($map2) {
+	.#{$key} {
+		color: red;
+	}
+}
+
+$map3: (
+	default: (
+		width: 100px,
+		height: 100px
+	),
+	box1: (
+		width: 200px,
+		height: 200px
+	),
+	box2: (
+		width: 300px,
+		height: 300px
+	)
+);
+
+@each $key, $value in $map3 {
+	$width: map-get($value, width);
+	$height: map-get($value, height);
+	.btn-#{$key} {
+		width: $width;
+		height: $height;
 	}
 }
